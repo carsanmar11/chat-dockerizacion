@@ -99,7 +99,12 @@ async function ensureDBConnected() {
 
 // Controlador de registro de usuario
 async function registerUser(req, res) {
+  //LOGS DEPURACIÓN
+  console.log('Datos recibidos para registro:', req.body);
+  console.log('Ruta alcanzada: POST /api/Users/register');
+  /////////////////////
   console.log("Datos recibidos en el registro:", req.body);
+  res.status(200).json({ message: 'Registro recibido' }); // Respuesta de prueba
   try {
     await ensureDBConnected(); // Asegurar conexión
     const db = mongoose.connection.db; // Ahora debería estar conectado

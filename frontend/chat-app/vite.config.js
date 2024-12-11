@@ -6,7 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/socket.io': 'http://localhost:3001',  // Redirigir las solicitudes de socket.io al backend
+      '/socket.io': 'http://backend:3001',  // Redirigir las solicitudes de socket.io al backend
+      '/api': 'http://backend:3001', // Redirige las solicitudes al backend MODIFICACIÓN
     }
   }
 })

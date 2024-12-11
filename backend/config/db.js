@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const DB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/chatApp';
+const DB_URI = process.env.MONGODB_URI || 'mongodb://mongo:27017/chatApp';
 
 /* async function connectDB() {
   try {
@@ -37,6 +37,11 @@ const DB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/chatApp';
         useNewUrlParser: true,
         useUnifiedTopology: true,
       });
+
+       // Listar las colecciones como prueba
+      const collections = await mongoose.connection.db.listCollections().toArray();
+      console.log('Colecciones en la base de datos:', collections);
+      /////////////////////////////////
       console.log('Conexión establecida, iniciando el servidor...');
     } catch (error) {
       console.error('Error al conectar a MongoDB:', error);
